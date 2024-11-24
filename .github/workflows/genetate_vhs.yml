@@ -37,11 +37,12 @@ jobs:
         go install github.com/charmbracelet/vhs@latest
     - name: Generate ghfetch gif with vhs
       run: |
-        export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        export GITHUB_TOKEN=${{ secrets.TOKEN }}
         vhs < img/demo.tape
     - name: Commit and push if there are changes
       run: |
         git add img/demo.gif
+        echo $GITHUB_TOKEN
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "Update ghfetch gif with vhs" -a || echo "No changes to commit"
