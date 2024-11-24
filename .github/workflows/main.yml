@@ -42,8 +42,11 @@ jobs:
 
     - name: Commit and push if there are changes
       run: |
+        git fetch origin
+        git checkout master  # or your default branch name
+        git merge origin/master --no-edit || echo "No changes to merge"
         git add img/demo.gif
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         git commit -m "Update ghfetch gif with vhs" -a || echo "No changes to commit"
-        git push
+        git push origin master  # or your default branch name
