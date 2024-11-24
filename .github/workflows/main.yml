@@ -45,7 +45,7 @@ jobs:
         git fetch origin
         git checkout master  # or your default branch name
         git merge origin/master --no-edit || echo "No changes to merge"
-        git add img/demo.gif
+        git add .
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         git commit -m "Update ghfetch gif with vhs" -a || echo "No changes to commit"
