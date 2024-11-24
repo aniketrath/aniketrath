@@ -37,7 +37,7 @@ jobs:
         go install github.com/charmbracelet/vhs@latest
     - name: Generate ghfetch gif with vhs
       run: |
-        export GITHUB_TOKEN=${{ secrets.GH_PAT }}
+        export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
         vhs < img/demo.tape
     - name: Commit and push if there are changes
       run: |
